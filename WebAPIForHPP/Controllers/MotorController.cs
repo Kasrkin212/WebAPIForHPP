@@ -19,6 +19,7 @@ namespace WebAPIForHPP.Controllers
         {
             return Ok(await _context.Motors.ToListAsync());
         }
+        
         [HttpPost]
         public async Task<ActionResult<List<Motor>>> AddMotor(Motor motor)
         {
