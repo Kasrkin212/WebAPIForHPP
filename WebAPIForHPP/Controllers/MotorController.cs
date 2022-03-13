@@ -26,6 +26,17 @@ namespace WebAPIForHPP.Controllers
             _context.Motors.Add(motor);
             await _context.SaveChangesAsync();
             return Ok(await _context.Motors.ToListAsync());
+
+        }
+        [HttpPut]
+        public async Task<ActionResult<List<Motor>>> ChangeMotor(Motor motor)
+        {
+            var DBmotor = await _context.Motors.FindAsync(motor.ID);
+            if (DBmotor == null)
+                return BadRequest("Motor not found.");
+            DBmotor.Comment = motor.Comment;
+            await _context.SaveChangesAsync();
+            return Ok(await _context.Motors.ToListAsync());
         }
     }
 }
