@@ -7,5 +7,6 @@ namespace WebAPIForHPP.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
         public DbSet<Motor> Motors { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
